@@ -1,0 +1,66 @@
+<h1>Lista de Clientes</h1>
+<div class="mat-elevation-z8">  
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>  
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let cliente">  {{cliente.id_cliente}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Nome">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
+    </ng-container>
+
+    <!-- telefone Column -->
+    <ng-container matColumnDef="Telefone">
+      <th mat-header-cell *matHeaderCellDef> Telefone </th>
+      <td mat-cell *matCellDef="let cliente">  {{cliente.telefone}} </td>
+    </ng-container>
+
+    <!-- email Column -->
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
+    </ng-container>
+
+    <!-- endereco1 Column -->
+    <ng-container matColumnDef="residencia">
+      <th mat-header-cell *matHeaderCellDef> Dirección de residencia </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.endereco1}} </td>
+    </ng-container>
+
+    <!-- endereco2 Column -->
+    <ng-container matColumnDef="Municipio y Caixa Postal">
+      <th mat-header-cell *matHeaderCellDef> Municipio y Caixa Postal </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.endereco2}} </td>
+    </ng-container>
+
+    <!-- 
+      endereco3 Column 
+    <ng-container matColumnDef="pago">
+      <th mat-header-cell *matHeaderCellDef> Dirección de Cargo de pago </th>
+      <td mat-cell *matCellDef="let cliente"> {{cliente.endereco3}} </td>
+    </ng-container> 
+
+     action Column -->
+    <ng-container matColumnDef="accíon">
+      <th mat-header-cell *matHeaderCellDef> Acción </th>
+      <td mat-cell *matCellDef="let cliente" class="action-link">
+        <button>
+          <mat-icon (click)="onRowClickedDelete(cliente)" >delete</mat-icon>
+          
+        </button>
+        <button>
+          <mat-icon (click)="onRowClickedEdit(cliente)" >edit</mat-icon>
+          
+        </button>
+       </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+  </table>
+
+</div>

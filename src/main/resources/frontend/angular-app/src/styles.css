@@ -1,0 +1,10 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+html, body { height: 130%; }
+body { 
+    margin: 8px; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background: url("/assets/logoTipoMacara.jpg") no-repeat bottom ;
+
+}
+table {
+    width: 100%;
+  }

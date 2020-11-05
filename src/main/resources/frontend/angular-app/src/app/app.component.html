@@ -1,0 +1,29 @@
+<div class="container mt0">
+  <div class="row mt0">
+    <div class="col-md-12 mt0">
+      <div class="card bg-dark my-2 mt0 ">
+        <div class="card-body mt0">
+          
+          <h2 class="card-title text-center text-white py-3 mt0">{{ title }}</h2>
+            <button  class="btn btn-info" mat-button [matMenuTriggerFor]="MenuPrincial">Menu</button>
+            <mat-menu #MenuPrincial="matMenu">
+              <button  class="btn btn-info" mat-menu-item [matMenuTriggerFor]="Cadastros">Añadir</button>              
+              <button  class="btn btn-info" mat-menu-item [matMenuTriggerFor]="Listas">Listas</button>
+            </mat-menu>
+
+            <mat-menu #Cadastros="matMenu">
+              <button class="btn btn-info" routerLink="/ClienteAdd" mat-menu-item>Cliente</button>
+              <button class="btn btn-info" mat-menu-item >Empresa</button>    
+              <button class="btn btn-info" mat-menu-item>Factura o Presupuesto</button>                        
+            </mat-menu>
+
+            <mat-menu #Listas="matMenu">
+              <button class="btn btn-info" mat-menu-item>Factura y Presupuesto</button>            
+              <button class="btn btn-info" routerLink="/ClienteList" mat-menu-item >Clientes</button>
+            </mat-menu>
+        </div> 
+      </div>      
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

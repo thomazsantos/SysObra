@@ -1,0 +1,87 @@
+<h1>Añidir Clientes</h1>
+<div class="card my-5">  
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #clienteForm="ngForm">        
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" [(ngModel)]="cliente.nome" 
+            class="form-control" 
+            id="nome" 
+            name="nome" 
+            placeholder="Nome do cliente"
+            required #name="ngModel">
+        </div>
+        <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="text" [(ngModel)]="cliente.telefone" 
+            class="form-control" 
+            id="telefone" 
+            name="telefone" 
+            placeholder="Telefone do cliente"
+            required #telefone="ngModel">
+          <div [hidden]="!telefone.pristine" class="alert alert-danger">Telefone is required</div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" [(ngModel)]="cliente.email" 
+              class="form-control" 
+              id="email" 
+              name="email" 
+              placeholder="E-Mail do cliente"
+              #email="ngModel">
+            <div></div>
+          </div>
+          <div class="form-group">
+            <label for="endereco1">Dirección de residencia</label>
+            <input type="text" [(ngModel)]="cliente.endereco" 
+              class="form-control" 
+              id="endereco1" 
+              name="endereco1" 
+              placeholder="Dirección de residencia del cliente"
+              required #endereco1="ngModel">
+            <div [hidden]="!endereco1.pristine" class="alert alert-danger">Dirección de residencia is required</div>
+          </div>
+        
+          <div class="form-group">
+            <label for="endereco2">Municipio y Caixa Postal </label>
+            <input type="text" [(ngModel)]="cliente.municipio" 
+              class="form-control" 
+              id="endereco2" 
+              name="endereco2" 
+              placeholder="Municipio y Caixa Postal"
+              required #endereco2="ngModel">
+            <div [hidden]="!endereco2.pristine" class="alert alert-danger">Municipio y Caixa Postal is required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="endereco2">Código Postal </label>
+            <input type="text" [(ngModel)]="cliente.codigopostal" 
+              class="form-control" 
+              id="endereco2" 
+              name="endereco2" 
+              placeholder="Código Postal"
+              required #endereco2="ngModel">
+            <div [hidden]="!endereco2.pristine" class="alert alert-danger"> Código Postal is required</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="sexo">Hombre</label>
+            <input type="checkbox" [(ngModel)]="cliente.sexo" 
+              class="form-control" 
+              id="sexo" 
+              name="sexo" 
+              placeholder="Sexo"
+              required #cliente.sexo="ngModel">    
+              <label for="sexo">Mujer</label>
+              <input type="checkbox" ([ng-model)]="cliente.sexo" ng-true-value="Masculino" ng-false-value="Feminino" />
+              <label for="sexo">Hombre</label>
+              <input type="checkbox" ([ng-model)]="cliente.sexo" ng-true-value="Feminino" ng-false-value="Masculino" />
+            <div [hidden]="!cliente.sexo" class="alert alert-danger">Genero is required</div>
+          </div> 
+        
+        <button type="submit" [disabled]="!clienteForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
